@@ -84,7 +84,7 @@ resource "aws_security_group" "sg-ec2" {
     Environment = var.environment
   }
 
-  depends_on = [aws_security_group.sg-lb]
+  # depends_on = [aws_security_group.sg-lb]
 }
 
 # resource "aws_security_group" "sg-efs" {

@@ -26,5 +26,6 @@ resource "aws_instance" "wiki-ec2" {
     volume_type = "gp2"
   }
 
-  depends_on = [aws_security_group.sg-ec2, aws_efs_file_system.wiki-efs]
+#   depends_on = [aws_security_group.sg-ec2, aws_efs_file_system.wiki-efs]
+  depends_on = [aws_security_group.sg-ec2]
 }
