@@ -1,0 +1,5 @@
+terraform plan -var-file="dev.tfvars" -out="tfplan.out"
+terraform apply "tfplan.out"
+terraform destroy -var-file="dev.tfvars" -auto-approve
+
+terraform import -var-file="dev.tfvars" aws_api_gateway_rest_api.api-genericos hgetff6211

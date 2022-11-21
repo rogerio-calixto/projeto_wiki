@@ -1,0 +1,13 @@
+variable "project" {}
+variable "environment" {}
+variable "key_name" {}
+variable "aws_region" {}
+variable "aws_vpc_vpc_id" {}
+variable "private-subnet-ids" {}
+variable "public-subnet-ids" {}
+variable "internal_ip_ssh" {}
+variable "instance_type" {}
+variable "db_instance_type" {}
+variable "amis" {}
+variable "sns_topic_arn" {}
+variable "avaiable_zones_name" {}
