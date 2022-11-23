@@ -33,35 +33,9 @@
 # }
 
 resource "aws_security_group" "sg-ec2" {
-  name        = "${var.environment}-sg-ec2-wiki"
-  description = "Habilita entrada ao sg-lb"
+  name        = "sg-${var.environment}-web"
+  description = "Grupo de seguranca projeto 7 web"
   vpc_id      = var.aws_vpc_vpc_id
-
-  # // Apenas para manutenção da instância
-  ingress {
-    description     = "POP3"
-    from_port       = 110
-    to_port         = 110
-    protocol        = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-    ingress {
-    description     = "SMTP"
-    from_port       = 587
-    to_port         = 587
-    protocol        = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    description     = "Porta alternativa HTTP"
-    from_port       = 80
-    to_port         = 80
-    protocol        = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    //security_groups = ["${aws_security_group.sg-lb.id}"]
-  }
 
   ingress {
     description = "SSH para IP especifico"
@@ -69,6 +43,15 @@ resource "aws_security_group" "sg-ec2" {
     to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["${var.internal_ip_ssh}"]
+  }
+  
+  ingress {
+    description     = "Porta alternativa HTTP"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    //security_groups = ["${aws_security_group.sg-lb.id}"]
   }
 
   egress {
@@ -79,7 +62,7 @@ resource "aws_security_group" "sg-ec2" {
   }
 
   tags = {
-    Name        = "${var.environment}-sg-ec2-wiki"
+    Name        = "sg-${var.environment}-web"
     Project     = var.project
     Environment = var.environment
   }

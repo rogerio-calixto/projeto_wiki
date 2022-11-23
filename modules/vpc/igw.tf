@@ -1,6 +1,6 @@
 resource "aws_internet_gateway" "igw" {
   tags = {
-    Name        = "igw-wiki"
+    Name        = "${var.project}-igw"
     Project     = var.project
     Environment = var.environment
   }

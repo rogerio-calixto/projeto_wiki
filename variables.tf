@@ -26,7 +26,7 @@ variable "subnet_counts" {
 variable "amis" {
   description = "Images avaiables."
   default = {
-    us-east-1 = "ami-0149b2da6ceec4bb0"
+    us-east-1 = "ami-002070d43b0a4f171"
     us-east-2 = ""
     us-west-1 = ""
     us-west-2 = ""

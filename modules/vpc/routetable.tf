@@ -2,7 +2,7 @@ resource "aws_route_table" "rt-private" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name        = "rt-pvt-wiki"
+    Name        = "${var.project}-rt-private"
     Project     = var.project
     Environment = var.environment
   }
@@ -26,7 +26,7 @@ resource "aws_route_table" "rt-public" {
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    Name        = "rt-pub-wiki"
+    Name        = "${var.project}-rt-public"
     Project     = var.project
     Environment = var.environment
   }

@@ -3,7 +3,7 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name        = "vpc-glpi"
+    Name        = "${var.project}-vpc"
     Project     = var.project
     Environment = var.environment
   }
